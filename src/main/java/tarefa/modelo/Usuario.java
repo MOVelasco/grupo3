@@ -1,4 +1,4 @@
-package moduloTarefa;
+package tarefa.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
