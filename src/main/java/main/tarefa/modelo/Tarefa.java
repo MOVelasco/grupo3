@@ -1,14 +1,27 @@
-package tarefa.modelo;
+package main.tarefa.modelo;
 
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+@Entity
 public class Tarefa {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long tarefaID;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
 	private Usuario usuarioOrigem;
 	
+	@Transient
 	private List<Usuario> usuariosDestino;
 	
 	private Date dataInicio;
@@ -19,6 +32,10 @@ public class Tarefa {
 	
 	private String prioridade;
 
+	public Tarefa() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Tarefa(Long tarefaID, Usuario usuarioOrigem, List<Usuario> usuariosDestino, Date dataInicio, Date dataFim,
 			String status, String prioridade) {
 		super();
